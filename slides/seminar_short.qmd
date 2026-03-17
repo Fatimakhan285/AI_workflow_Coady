@@ -1,0 +1,122 @@
+---
+title: "AI Workflow Seminar"
+subtitle: "Using Claude Code for Research"
+author: "Coady Wing"
+date: "2026-03-04"
+format:
+  revealjs:
+    theme: [default, themes/clean.scss]
+    scrollable: true
+    slide-number: true
+    embed-resources: true
+    code-overflow: wrap
+editor:
+  markdown:
+    wrap: 72
+---
+
+## Seminar Repository and Claude Code Quickstart
+
+Repository for Today: [github.com/coadywing/ai_workflow_seminar](https://github.com/coadywing/ai_workflow_seminar)
+
+
+Claude Code Quickstart: [code.claude.com/docs/en/quickstart](https://code.claude.com/docs/en/quickstart)
+
+
+## Claude Code
+
+Claude Code is a **command-line agent** that lives in your
+terminal.
+
+- It reads and writes files on your computer
+- It runs shell commands
+- It understands your project structure
+- It follows instructions you give it in `CLAUDE.md`
+
+## Prerequisites
+
+It is not free but it is very cheap and well worth paying for.
+
+- **Claude Pro** ($20/mo)
+- **Claude Max** ($100/mo)
+- **API console** at
+  [console.anthropic.com](https://console.anthropic.com) — use
+  an API key
+
+
+## Conversations and Context
+
+You talk to Claude in natural language. Key difference from a
+chatbot: Claude Code can take actions on your computer.
+
+- Write clear instructions: context, tasks, outcomes
+- Use plan mode for complex tasks; redirect if you don't like
+  the plan
+- Iterate on the work product — turnaround is fast
+
+The **context window** is Claude's working memory (~200,000
+tokens). Keep sessions focused; use `/clear` when switching
+tasks.
+
+## `CLAUDE.md`: Project Memory
+
+`CLAUDE.md` is the first file Claude reads when it starts. It
+tells Claude what the project is about, how it's structured,
+and what conventions to follow.
+
+When you start a new project, describe it to Claude and ask it
+to write a `CLAUDE.md`. Update this file as the project
+evolves.
+
+## The `.claude` folder
+
+Hidden folder where you put configuration files.
+
+- On a mac, view hidden directories with `Cmd+Shift+.` in
+  Finder
+- On windows, view hidden directories with `Ctrl+H` in File
+  Explorer
+
+## Rules: Automatic Conventions
+
+Rules live in `.claude/rules/` and are loaded automatically.
+
+Example from `r-code-conventions.md`:
+
+- Use `data.table` (not tidyverse)
+- Use `here()` for all paths
+- Use `fixest` for regressions
+
+Rules are natural language in markdown files. Scoping
+conditions control when they are loaded.
+
+## Skills: Slash Commands
+
+Skills are pre-built prompts you invoke with `/`:
+
+```
+/proofread manuscript/3_results.tex
+/review-r code/03_estimation.r
+/compile-paper
+```
+
+Skills live in `.claude/skills/`. They encode complex
+multi-step workflows into a single command.
+
+## Agents
+
+Main Claude can spawn agents to perform specialized tasks.
+
+Each agent has its own context window. The agent performs its
+task and returns a structured report to the main Claude.
+
+## GitHub & Version Control
+
+1. **Clean directory structure** — Git repos encourage the kind
+   of organized project layout that Claude works best with
+
+2. **Safety net** — if Claude makes big changes that don't work
+   out, you can always roll back to the last commit
+
+3. **Claude makes Git easier** — Claude can handle commits,
+   diffs, and even pull requests for you

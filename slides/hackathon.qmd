@@ -1,0 +1,85 @@
+---
+title: "Getting started with claude code"
+author: "Coady Wing"
+date: "2026-03-06"
+format:
+  html:
+    embed-resources: true
+    toc: false
+    mainfont: "Lato, sans-serif"
+    monofont: "SF Mono, Fira Code, Consolas, monospace"
+    css: hackathon-style.css
+editor:
+  markdown:
+    wrap: 72
+---
+
+# Introduction
+
+How many weird things can you do with claude code in a short
+time? Which things will work well and which will fail? How do
+you get claude to help you?
+
+---
+
+## Task 1: Twenty Years of Poverty in the Midwest
+
+1. Make a new project directory on your computer. Add
+   sub-directories for standard things: `raw_data`,
+   `intermediate_data`, `code`, `output`, `manuscript`,
+   `notes`.
+
+2. Open the terminal and change directory to your project.
+   Launch claude.
+
+3. Tell claude that you are starting a new project that will
+   use data from the USDA Economic Research Service to compare
+   county level poverty rates in the midwestern United States
+   over the past 20 years.
+
+   - Ask claude to write a `CLAUDE.md` file that explains this
+     basic context and the directory structure.
+   - Also tell it that you will eventually put this project
+     into a github repository, so it should write a `README.md`
+     file that will help users run the code and reproduce
+     results.
+
+4. Write a prompt asking claude to:
+
+   - download the relevant data from the USDA
+   - write R code to make maps showing the poverty rate in each
+     county today and 20 years ago
+
+   Tell it to enter plan mode and figure out how to proceed.
+   Add any instructions you may have about coding preferences
+   and documentation. When you are ready, run the plan.
+
+5. Look at the results and iterate as needed. Write up a short report in latex and compile the paper.
+
+## Task 2: Reimplement Stata Code in R
+
+The `ai_workflow_seminar` repository has some example materials. 
+
+- Have a look at `.claude/rules/r-code-conventions.md` for ideas about how to get claude to write code the way you want.
+
+- Take the Stata `.do` files in `example_materials` and ask Claude to reimplement them in R. If you have your own Stata code, use that instead.
+
+## Task 3: Domain Expert Review
+
+Have a look at `.claude/agents/domain-reviewer.md`. It is designed to review your manuscript pretending to be a fussy empirical economist. 
+
+Have Claude conduct a domain-expert review of a draft paper. (It does have an easier time with plaintext or docx files; it does not love pdf files as much.)
+
+## Task 4: Build a Custom Skill, Agent, or Rule
+
+Look at existing skills, agents, and rules in `.claude/` for
+ideas. Ask claude to help you.
+
+## Task 5: Academic Website on GitHub
+
+Ask Claude to build you a personal academic website and deploy it to GitHub Pages. The site should include:
+
+- Your name and photo placeholder
+- Research interests
+- CV or resume section
+- Links (email, Google Scholar, GitHub, etc.)
